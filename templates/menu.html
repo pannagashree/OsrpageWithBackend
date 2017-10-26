@@ -1,0 +1,77 @@
+{%extends 'base.html'%}
+{% block extra_head %}
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}"/>
+{% endblock %}
+{%block head%}
+Menu
+{%endblock%}
+{%block content%}
+ <div class="header">
+      <h2>INDIAN BREADS</h2>
+ </div>
+ <div class="pagebody">
+    <div class="tab">
+      <h3>MENU</h3>
+      <button class="tablinks active" onclick="openMenu(event, 'Roti')">Rotis</button>
+      <button class="tablinks" onclick="openMenu(event, 'Naan')">Naan</button>
+      <button class="tablinks" onclick="openMenu(event, 'Kulcha')">Kulcha</button>
+      <button class="tablinks" onclick="openMenu(event, 'Paratha')">Paratha</button>
+    </div>
+    <div class="middle">
+      <div class="dropdown2">
+         <button class="dropbtn2" onclick='$("#myDropdown2").toggleClass("show")'>ROTIS  &#9660;</button>
+          <div id="myDropdown2" class="dropdown-content2">
+            <button class="tablinks active" onclick="openMenu(event, 'Roti')">Rotis</button>
+            <button class="tablinks" onclick="openMenu(event, 'Naan')">Naan</button>
+            <button class="tablinks" onclick="openMenu(event, 'Kulcha')">Kulcha</button>
+            <button class="tablinks" onclick="openMenu(event, 'Paratha')">Paratha</button>
+          </div>
+      </div>
+      <div id="Roti" class="tabcontent">
+       <!--<h4>ROTIS  &#9660;</h4>!-->
+       <hr>
+       <div class="items">
+        <div class="image">
+        	<img src="roti-canai.jpg">
+        </div>
+        <div class="content" onclick='$(".content").toggleClass("maxcontent")' id="cont">
+          <div class="top">
+            <div class="heading">
+              <h5 class="name">Roti</h5>
+            </div>
+            <div class="cost">
+              <h5 class="rate">250</h5>
+            </div>
+          </div>
+          <div class="details">
+            <p>THis is very smooth and soft and very amaazing</p>
+          </div>
+          <div class="deliveryCost">
+            <h5>Delivery Cost:25</h5>
+          </div>
+          <a href="#" class="btn">ORDER</a>
+        </div>
+       </div>
+       <hr>
+      </div>
+    </div>
+    <div class="ordering">
+    <p id="font">YOUR ORDER</p>
+    <hr>
+    </div>
+    <div id="Naan" class="tabcontent hide">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p>
+    </div>
+    <div id="Kulcha" class="tabcontent hide">
+      <h3>kulcha</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+    </div>
+    <div class="footer">
+    </div>
+    {% block extra_content %}
+    <script type="text/javascript" src="{% static 'js/menu.js'%}"></script>
+    {% endblock %}
+{%endblock%}

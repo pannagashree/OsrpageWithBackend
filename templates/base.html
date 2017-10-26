@@ -1,0 +1,42 @@
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css'%}"/>
+<html>
+	<head>
+	<title>{% block head %}{% endblock %}</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	{% block extra_head %}{% endblock %}
+	</head>
+	<body>
+
+		<div class="container" id="myTopnav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <div class="responsive-content">
+		  <a href="#home">HOME</a>
+		  <a href="#news">ABOUT US</a>
+		  <div tabindex="0" class="dropdown">
+		    <button id="btnShowHide" class="dropbtn" onclick='$("#myDropdown").toggleClass("show")'>MENU &#x25BE;</button>
+		    <div id="myDropdown" class="dropdown-content">
+		      <a href="#">Andhra Delicacies</a>
+		      <a href="#">Mangalorean Cuisine</a>
+		      <a href="#">Tandoor Delicacies</a>
+		      <a href="#">Indian Breads</a>
+		      <a href="#">North Indian</a>
+		      <a href="#">Chineese</a>
+		      <a href="#">Royal Indulgence</a>
+		    </div>
+		  </div>
+		  <a href="#news">CONTACT US</a> 
+		  <a href="#news">GALLERY</a>
+		  <a href="#news">REVIEW</a>
+		  </div>
+		  <a href="javascript:void(0);" style="font-size:30px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		{% block content%}
+		{% endblock %}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    	<script type="text/javascript" src="{% static 'js/base.js'%}"></script>
+    	{% block extra_content %}{% endblock %}
+	</body>
+</html>
