@@ -8,6 +8,7 @@
     overflow-y: hidden;
     width:100%;
     margin-top: 7px;
+    display: none;
 }
 
 .dropdown2 .dropbtn2 {
@@ -161,6 +162,16 @@ h3{
     height: 100%;
     width:74%;
 }
+h4{
+    margin-left: 10px;
+    font-size: 27px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-weight: bold;
+    /*margin-top: 15px;*/
+    font-family: 'Francois One', sans-serif;
+    color: #AF473C;
+}
 h5{
     padding-left: 5px;
     padding-top: 10px;
@@ -261,6 +272,9 @@ hr{
   h2{
     font-size: 65px;
   }
+  h4{
+    display: none;
+  }
   .tab
   {
     display: none;
@@ -277,6 +291,9 @@ hr{
     position: absolute;
     top:0;
     left: 0;
+  }
+  .dropdown2{
+    display: block;
   }
   div.content{
     width: 95%;

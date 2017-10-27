@@ -13,23 +13,23 @@ Menu
  <div class="pagebody">
     <div class="tab">
       <h3>MENU</h3>
-      <button class="tablinks active" onclick="openMenu(event, 'Roti')">Rotis</button>
-      <button class="tablinks" onclick="openMenu(event, 'Naan')">Naan</button>
-      <button class="tablinks" onclick="openMenu(event, 'Kulcha')">Kulcha</button>
-      <button class="tablinks" onclick="openMenu(event, 'Paratha')">Paratha</button>
+      <button class="tablinks active" onclick="openMenu(event, 'item1')">{% block item1 %}{% endblock item1 %}</button>
+      <button class="tablinks" onclick="openMenu(event, 'item2')">{% block item2 %}{% endblock item2 %}</button>
+      <button class="tablinks" onclick="openMenu(event, 'item3')">{% block item3 %}{% endblock item3 %}</button>
+      <button class="tablinks" onclick="openMenu(event, 'item4')">{% block item4 %}{% endblock item4 %}</button>
     </div>
     <div class="middle">
       <div class="dropdown2">
          <button class="dropbtn2" onclick='$("#myDropdown2").toggleClass("show")'>ROTIS  &#9660;</button>
           <div id="myDropdown2" class="dropdown-content2">
-            <button class="tablinks active" onclick="openMenu(event, 'Roti')">Rotis</button>
-            <button class="tablinks" onclick="openMenu(event, 'Naan')">Naan</button>
-            <button class="tablinks" onclick="openMenu(event, 'Kulcha')">Kulcha</button>
-            <button class="tablinks" onclick="openMenu(event, 'Paratha')">Paratha</button>
+            <button class="tablinks active" onclick="openMenu(event, 'item1')">{% block s_item1 %}{% endblock s_item1%}</button>
+            <button class="tablinks" onclick="openMenu(event, 'item2')">{% block s_item2 %}{% endblock s_item2 %}</button>
+            <button class="tablinks" onclick="openMenu(event, 'item3')">{% block s_item3 %}{% endblock s_item3 %}</button>
+            <button class="tablinks" onclick="openMenu(event, 'item4')">{% block s_item4 %}{% endblock s_item4 %}</button>
           </div>
       </div>
-      <div id="Roti" class="tabcontent">
-       <!--<h4>ROTIS  &#9660;</h4>!-->
+      <div id="item1" class="tabcontent">
+       <h4>ROTIS</h4>
        <hr>
        <div class="items">
         <div class="image">
@@ -60,12 +60,16 @@ Menu
     <p id="font">YOUR ORDER</p>
     <hr>
     </div>
-    <div id="Naan" class="tabcontent hide">
+    <div id="item2" class="tabcontent hide">
       <h3>Paris</h3>
       <p>Paris is the capital of France.</p>
     </div>
-    <div id="Kulcha" class="tabcontent hide">
+    <div id="item3" class="tabcontent hide">
       <h3>kulcha</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+    <div id="item4" class="tabcontent hide">
+      <h3>Paratha</h3>
       <p>Tokyo is the capital of Japan.</p>
     </div>
     </div>

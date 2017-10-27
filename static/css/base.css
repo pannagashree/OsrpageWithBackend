@@ -74,9 +74,9 @@ body{
 .container .icon,.container .closebtn{
     display: none;
 }
-.dropdown:hover .dropdown-content {
+/*.dropdown:hover .dropdown-content {
     display: block;
-}
+}*/
 @media screen and (max-width: 320px) {
   .responsive-content a:not(:first-child) {display: none;}
   .container .dropdown {
