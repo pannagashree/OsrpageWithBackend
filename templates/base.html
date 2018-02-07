@@ -5,10 +5,10 @@
 	<title>{% block head %}{% endblock %}</title>
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	{% block extra_head %}{% endblock %}
 	</head>
 	<body>
-
 		<div class="container" id="myTopnav">
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		  <div class="responsive-content">
@@ -34,9 +34,15 @@
 		</div>
 		{% block content%}
 		{% endblock %}
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    	<!--<script type="text/javascript" src="materialize/js/materialize.min.js"></script>!-->
     	<script type="text/javascript" src="{% static 'js/base.js'%}"></script>
-    	{% block extra_content %}{% endblock %}
+    	{% block extra_content %}
+    	{% endblock %}
+    	{% block menu_content %}
+    	{% endblock %}
+    	
+    	<div class="footer">
+    	
+    	</div>
 	</body>
 </html>

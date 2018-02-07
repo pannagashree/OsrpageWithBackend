@@ -19,4 +19,6 @@ from webpage_display import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.menu),
+    url(r'^review/',views.review),
+     url(r'^ajax/order_info/$', views.order_info),
 ]

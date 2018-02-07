@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{% load app_filters%}
+{% block extra_head %}
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'css/review.css'%}">
+{% endblock %}
+{%block head%}
+Reviews
+{%endblock%}
+{% block extra_content %}
+    <script type="text/javascript" src="{% static 'js/review.js'%}"></script>
+{% endblock %}
+{%block content%}
+ <div class="header" style="background: url();background-repeat: no-repeat;background-size:100% 500px;height: 400px;">
+      <h2 style="font-size: 120px;">REVIEWS</h2>
+ </div>
+ <h4 style="text-align: center;">REVIEW US HERE</h4>
+ <div class="feedback">
+ <form>
+ 	<label>NAME</label><br>
+ 	<input type="text" name="cname" id="cname" placeholder="Your name">
+ 	<label>FEEDBACK</label><br>
+ 	<textarea id="feed" placeholder="Give us your feedback"></textarea>
+ 	<label>RATE</label><br>
+ 	<button class="btn" onclick="addFeedback();return false;">SUBMIT</button>
+ </form>
+ <hr>
+ </div>
+ <h4 style="margin-left: 20px;">REVIEWS</h4>
+ <div class="review_section">
+ {% for i in list %}
+ <div class="reviews">
+ 	<div class="info">
+ 	</div>
+ 	<div class="cont">
+ 	</div>
+ </div>
+{% endfor %}
+ </div>
+ {%endblock%}

@@ -1,4 +1,5 @@
 {%extends 'base.html'%}
+{% load app_filters%}
 {% block extra_head %}
 {%load static%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css'%}"/>
@@ -6,6 +7,9 @@
 {%block head%}
 Menu
 {%endblock%}
+{% block extra_content %}
+    <script type="text/javascript" src="{% static 'js/menu.js'%}"></script>
+{% endblock %}
 {%block content%}
  <div class="header">
       <h2>INDIAN BREADS</h2>
@@ -13,56 +17,64 @@ Menu
  <div class="pagebody">
     <div class="tab">
       <h3>MENU</h3>
-      <button class="tablinks active" onclick="openMenu(event, 'item1')">{% block item1 %}{% endblock item1 %}</button>
-      <button class="tablinks" onclick="openMenu(event, 'item2')">{% block item2 %}{% endblock item2 %}</button>
+      {%for type in variety%}
+      <button class="tablinks" onclick="openMenu(event, 'item{{type.0}}')">{{type.1}}</button>
+      {% endfor %}
+      <!--<button class="tablinks" onclick="openMenu(event, 'item2')">{% block item2 %}{% endblock item2 %}</button>
       <button class="tablinks" onclick="openMenu(event, 'item3')">{% block item3 %}{% endblock item3 %}</button>
-      <button class="tablinks" onclick="openMenu(event, 'item4')">{% block item4 %}{% endblock item4 %}</button>
+      <button class="tablinks" onclick="openMenu(event, 'item4')">{% block item4 %}{% endblock item4 %}</button>!-->
     </div>
     <div class="middle">
       <div class="dropdown2">
          <button class="dropbtn2" onclick='$("#myDropdown2").toggleClass("show")'>ROTIS  &#9660;</button>
           <div id="myDropdown2" class="dropdown-content2">
-            <button class="tablinks active" onclick="openMenu(event, 'item1')">{% block s_item1 %}{% endblock s_item1%}</button>
-            <button class="tablinks" onclick="openMenu(event, 'item2')">{% block s_item2 %}{% endblock s_item2 %}</button>
+            {% for type in variety %}
+            <button class="tablinks" onclick="openMenu(event, 'item{{type.0}}')">{{type.1}}</button>
+            {% endfor %}
+            <!--<button class="tablinks" onclick="openMenu(event, 'item2')">{% block s_item2 %}{% endblock s_item2 %}</button>
             <button class="tablinks" onclick="openMenu(event, 'item3')">{% block s_item3 %}{% endblock s_item3 %}</button>
-            <button class="tablinks" onclick="openMenu(event, 'item4')">{% block s_item4 %}{% endblock s_item4 %}</button>
+            <button class="tablinks" onclick="openMenu(event, 'item4')">{% block s_item4 %}{% endblock s_item4 %}</button>!-->
           </div>
       </div>
-      <div id="item1" class="tabcontent">
-       <h4>ROTIS</h4>
+      {%for type in variety%}
+      <div id="item{{type.0}}" class="tabcontent">
+       <h4>{{type.1}}</h4>
        <hr>
+       {%for item in lists|return_item:type.0%}
        <div class="items">
         <div class="image">
         	<img src="roti-canai.jpg">
         </div>
-        <div class="content" onclick='$(".content").toggleClass("maxcontent")' id="cont">
+        <div class="content" id={{item.0}} onclick='$("#{{item.0}}").toggleClass("maxcontent")' id="cont">
           <div class="top">
             <div class="heading">
-              <h5 class="name">Roti</h5>
+              <h5 class="name">{{item.1}}</h5>
             </div>
             <div class="cost">
-              <h5 class="rate">250</h5>
+              <h5 class="rate">{{item.2}}</h5>
             </div>
           </div>
           <div class="details">
-            <p>THis is very smooth and soft and very amaazing</p>
+            <p>{% block description %}{% endblock description %}</p>
           </div>
           <div class="deliveryCost">
-            <h5>Delivery Cost:25</h5>
+            <h5>Delivery Cost:{% block del_cost %}{% endblock del_cost %}</h5>
           </div>
-          <a href="#" class="btn">ORDER</a>
+          <a href="#" class="btn" onclick="order_now({{item.0}})">ORDER</a>
         </div>
        </div>
        <hr>
+       {% endfor %}
       </div>
+      {% endfor %}
     </div>
     <div class="ordering">
     <p id="font">YOUR ORDER</p>
     <hr>
+    <div id="orders">
+    </div>
     </div>
     <div id="item2" class="tabcontent hide">
-      <h3>Paris</h3>
-      <p>Paris is the capital of France.</p>
     </div>
     <div id="item3" class="tabcontent hide">
       <h3>kulcha</h3>
@@ -73,9 +85,4 @@ Menu
       <p>Tokyo is the capital of Japan.</p>
     </div>
     </div>
-    <div class="footer">
-    </div>
-    {% block extra_content %}
-    <script type="text/javascript" src="{% static 'js/menu.js'%}"></script>
-    {% endblock %}
 {%endblock%}

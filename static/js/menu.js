@@ -1,3 +1,10 @@
+$(document).ready(function(){
+    $("div[id^='item']").each(function(i){
+            this.style.display = "none";
+    });
+    document.getElementById("item0").style.display="block";
+    document.getElementsByClassName('tablinks')[0].className += " active";
+});
 function openMenu(evt, menuName) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -16,6 +23,7 @@ function openMenu(evt, menuName) {
 
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(menuName).style.display = "block";
+    //console.log(evt);
     evt.currentTarget.className += " active";
     var ele=evt.currentTarget.className;
     var ele1=document.getElementsByClassName(ele)[0].parentElement;
@@ -36,6 +44,18 @@ function openMenu(evt, menuName) {
     ele1.classList.remove("show");
 }
 $(".content a").click(function(e) {
-   //do something
    e.stopPropagation();
-})
+   e.preventDefault();
+});
+function order_now(item){
+    $.ajax({
+        url:'/ajax/order_info/',
+        data:{'item_no':item},
+        dataType:'json',
+        success:function(data){
+            //document.getElementById('orders').innerHTML += data.iname;
+            $('#orders').append(data.iname)
+        }
+    });
+}
+
